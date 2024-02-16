@@ -1,0 +1,38 @@
+---
+- hosts: local
+  name: Create kubernetes hosts
+  gather_facts: false
+  roles:
+    - role: openstack_network
+      vars:
+        openstack_network_dns_nameservers: "8.8.8.8"
+    - role: openstack_security
+    - role: openstack_server
+      vars:
+        openstack_server_name: "kube-server"
+        openstack_server_ansible_group: "server"
+        openstack_server_count: 1
+        openstack_server_security_groups:
+          - default
+          - my-security-group
+    - role: openstack_server
+      vars:
+        openstack_server_name: "kube-agent"
+        openstack_server_ansible_group: "agent"
+        openstack_server_count: 2
+        openstack_server_security_groups:
+          - default
+          - my-security-group
+
+- name: Install k3s server
+  hosts: server
+  roles:
+    - k3s_server
+
+- name: Install k3s agent
+  hosts: agent
+  roles:
+    - k3s_agent
+
+
+

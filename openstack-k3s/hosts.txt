@@ -1,0 +1,6 @@
+kube-plane-1: 195.192.130.122
+kube-worker-1: 195.192.128.51
+kube-worker-2: 195.192.131.115
+kube-server-1: 195.192.130.122
+kube-agent-1: 195.192.128.51
+kube-agent-2: 195.192.131.115
