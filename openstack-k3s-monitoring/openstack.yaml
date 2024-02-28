@@ -36,5 +36,10 @@
   roles:
     - k3s_agent
 
+- name: Install monitoring
+  hosts: local 
+  roles:
+    - k8s_monitoring_stack
+
 
 

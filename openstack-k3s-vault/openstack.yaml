@@ -36,5 +36,10 @@
   roles:
     - k3s_agent
 
-
-
+- name: Install vault
+  hosts: local 
+  roles:
+    - role: vault_helm
+      vars:
+        vault_helm_namespace: vault
+        vault_helm_kubekonfig: k3s_kubeconf
