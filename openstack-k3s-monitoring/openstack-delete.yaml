@@ -1,0 +1,10 @@
+---
+- hosts: local
+  gather_facts: false
+  roles:
+    - role: openstack_delete
+      vars:
+        openstack_server_names:
+          - "kube-server"
+          - "kube-agent"
+
