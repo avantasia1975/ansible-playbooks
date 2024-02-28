@@ -7,6 +7,8 @@
       vars:
         openstack_network_dns_nameservers: "8.8.8.8"
     - role: openstack_security
+      vars:
+        openstack_security_group_tcp_ports: [22, 6443]
     - role: openstack_server
       vars:
         openstack_server_name: "kube-server"
