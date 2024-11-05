@@ -5,6 +5,6 @@
 
 roles:
   - name: roles
-    src: git@gitlab.syseleven.de:akaminski/ansible-roles.git
+    src: git@github.com:avantasia1975/ansible-roles.git
     scm: git
     version: main
