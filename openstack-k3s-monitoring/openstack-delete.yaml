@@ -8,3 +8,15 @@
           - "kube-server"
           - "kube-agent"
 
+- hosts: local
+  name: delete files
+  tasks:
+    - name: delete k3s file
+      ansible.builtin.file:
+        name: k3s_kubeconf
+        state: absent
+    - name: delete hosts file
+      ansible.builtin.file:
+        name: hosts.txt
+        state: absent
+

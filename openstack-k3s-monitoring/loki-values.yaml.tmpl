@@ -1,0 +1,47 @@
+loki:
+  storage:
+    bucketNames:
+      chunks: loki-stage
+      ruler: loki-rules-stage
+    type: s3
+    s3:
+      endpoint: mimir-minio.test.svc:9000
+      accessKeyId: k8s_monitoring__user
+      secretAccessKey: k8s_monitoring_password
+      s3ForcePathStyle: true
+      insecure: true
+  structuredConfig:
+    schema_config:
+      configs:
+        - from: 2024-04-01
+          object_store: s3
+          store: tsdb
+          schema: v13
+          index:
+            prefix: index_
+            period: 24h
+    analytics:
+      reporting_enabled: false
+
+gateway:
+  basicAuth:
+    enabled: true
+    username: loki
+    password: loki
+
+monitoring:
+  selfMonitoring:
+    enabled: false
+  serviceMonitor:
+    enabled: true
+    labels:
+      release: prometheus
+  dashboards:
+    enabled: true
+  alerts:
+    enabled: false
+  rules:
+    enabled: false
+
+test:
+  enabled: false

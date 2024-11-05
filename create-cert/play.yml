@@ -1,0 +1,8 @@
+---
+- hosts: all
+  roles:
+    - role: generate_ca
+      vars:
+        generate_ca_common_name: "server1.local"
+        generate_ca_subject_alt_name:
+          - "DNS:server2.local"

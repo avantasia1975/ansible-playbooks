@@ -1,0 +1,16 @@
+---
+- hosts: local
+  gather_facts: false
+  roles:
+    - role: openstack_delete
+      vars:
+        openstack_server_names:
+          - "ceph"
+
+- hosts: local
+  name: delete files
+  tasks:
+    - name: delete hosts file
+      ansible.builtin.file:
+        name: hosts.txt
+        state: absent

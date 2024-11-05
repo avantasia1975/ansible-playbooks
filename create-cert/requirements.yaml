@@ -1,0 +1,10 @@
+# collections:
+#   - name: openstack.cloud
+#     version: 1.10.0
+#     source: https://galaxy.ansible.com
+
+roles:
+  - name: roles
+    src: git@gitlab.syseleven.de:akaminski/ansible-roles.git
+    scm: git
+    version: main
